@@ -1,6 +1,6 @@
 import pygame as pg
 import os
-
+from archivos_necesarios import constantes
 #hago la clase main menu la cual tendra las opciones iniciales deljuego, play, options, extras, exit.
 class mainmenu:
     def __init__(self, screen):
@@ -16,4 +16,4 @@ class opciones(mainmenu):
     def __init__(self, screen):
         super().__init__(screen)
         self.screen = screen
-        self.bg_font = (255,255,255)
+        self.bg_font = (255,200,255)
