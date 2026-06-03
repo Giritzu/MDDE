@@ -27,6 +27,7 @@ class boton_load(buttons):
         self.text_coords = screen.blit(self.text_render,(150,340+70))
         self.contorno = pg.Rect(75+75,332+75,160,40)
         self.dibujo_rectangulo = pg.draw.rect(screen, constantes.NEGRO, self.contorno,2)
+        
 class boton_extras(buttons):
     def __init__(self, screen):
         super().__init__(screen)
