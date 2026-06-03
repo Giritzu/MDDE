@@ -1,24 +1,26 @@
 #importaciones
 import pygame as pg
 import os
-
+from archivos_necesarios import main_menu
+from archivos_necesarios import botones
 #pestaña principal
 pg.init()
 screen = pg.display.set_mode((1280,720))
 titulo = pg.display.set_caption("MDDE")
 time = pg.time.Clock()
 run = True
-
 #codigo principal
 while run == True:
     #si le dan a quit para poder salir del juego
     for evento in pg.event.get():
         if evento.type == pg.QUIT:
             run = False
-    
-
-
+    #llamo al menu principal
+    menu_principal = main_menu.mainmenu(screen)
+    pantalla_principal = menu_principal.draw()
+    #actualizar la pantalla
+    pg.display.update()
     #fps
-    pg.reloj.tick(30)
+    time.tick(30)
 #cierro por completo el funcionamiento e pygame
 pg.quit()
