@@ -17,13 +17,16 @@ class boton_play(buttons):
         super().__init__(screen)
         self.text_render = self.text.render("Nuevo juego",True, constantes.NEGRO)
         self.text_coords = screen.blit(self.text_render,(100,340))
+        self.contorno = pg.Rect(75,332,160,40)
+        self.dibujo_rectangulo = pg.draw.rect(screen, constantes.NEGRO, self.contorno,2)
 
 class boton_load(buttons):
     def __init__(self, screen):
         super().__init__(screen)
         self.text_render = self.text.render("Cargar datos",True, constantes.NEGRO)
         self.text_coords = screen.blit(self.text_render,(150,340+70))
-
+        self.contorno = pg.Rect(75+75,332+75,160,40)
+        self.dibujo_rectangulo = pg.draw.rect(screen, constantes.NEGRO, self.contorno,2)
 class boton_extras(buttons):
     def __init__(self, screen):
         super().__init__(screen)
