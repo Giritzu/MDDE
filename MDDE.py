@@ -15,4 +15,10 @@ while run == True:
     for evento in pg.event.get():
         if evento.type == pg.QUIT:
             run = False
+    
+
+
+    #fps
+    pg.reloj.tick(30)
+#cierro por completo el funcionamiento e pygame
 pg.quit()
