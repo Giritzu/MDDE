@@ -1,3 +1,5 @@
-//La historia va a seguir al tipico estudiante (que en este caso seriamos nosotros los jugadores)  
-//
+/*
+MDD - Misterios detras de ella (me gusta el nombre jaja)
+La historia va a seguir al tipico estudiante (que en este caso seriamos nosotros los jugadores)  
+*/
 #introducción
