@@ -23,6 +23,8 @@ while run == True:
     for evento in pg.event.get():
         if evento.type == pg.QUIT:
             run = False
+    #borramos la pantalla
+    screen.fill((0, 0, 0))
 
     #dibujamos los botones
     menu_principal.draw()
