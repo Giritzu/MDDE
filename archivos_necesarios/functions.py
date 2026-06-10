@@ -6,10 +6,18 @@ from archivos_necesarios import constantes
 
 ##carpeta meramente hecha para tener todas las funciones necesarias para reciclar codigo
 
-##funcion para los rectangulos (hitboxes) de los botones y todo lo que se vaya a usar relacionados con estos
-def position_rect(pantalla,color_contorno,ancho,alto,x,y, posicion_estandar=""):
-
+##funcion para los rectangulos (hitboxes) de los botones y todo lo que se vaya a usar relacionados con estos (solo los va a crear mas no dibujar)
+def position_rect(ancho,alto,x,y, posicion_predefinida="center"):
+    #crearemos primero el rectangulo en el punto 0.0 para que solo simplemente tengamos que moverlo a la posicion que deseo.
+    rectangle = pg.Rect(0,0,ancho,alto)
+    #posicionaremos el rectangulo
+    setattr(rectangle, posicion_predefinida,(x,y))
+    
+    return rectangle
+def position_rect_y_dibujo(screen,ancho,alto,x,y, posicion_predefinida="center"):
+    
     pass
+
 
 ##funcion para los textos
 def text_renders(text,pantalla, text_color,text_option,x,y):

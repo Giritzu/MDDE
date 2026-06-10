@@ -8,9 +8,12 @@ class mainmenu:
         self.screen = screen
         #el texto de los botones
         self.bg_color = (100,100,200)
+        #color base de pruebas
+        self.screen.fill(self.bg_color)
+        #
     #para dibujar un fondo sencillo por los momentos
     def draw(self):
-        self.screen.fill(self.bg_color)
+        pass
 
 class opciones(mainmenu):
     def __init__(self, screen):
