@@ -37,8 +37,5 @@ class mainmenu:
         for boton in self.text_options:
             boton.draw()
 
-class opciones(mainmenu):
-    def __init__(self, screen):
-        super().__init__(screen)
-        self.screen = screen
-        self.bg_font = (255,200,255)
+class opciones:
+    pass 
