@@ -14,12 +14,18 @@ def position_rect(ancho,alto,x,y, posicion_predefinida="center"):
     setattr(rectangle, posicion_predefinida,(x,y))
     
     return rectangle
-def position_rect_y_dibujo(screen,ancho,alto,x,y, posicion_predefinida="center"):
-    
-    pass
+##pa probar rapidamente los rectangulos
+def position_rect_y_dibujo(screen,color,ancho,alto,x,y, posicion_predefinida="center"):
+    #crearemos primero el rectangulo en el punto 0.0 para que solo simplemente tengamos que moverlo a la posicion que deseo.
+    rectangle = pg.Rect(0,0,ancho,alto)
+    #posicionaremos el rectangulo
+    setattr(rectangle, posicion_predefinida,(x,y))
+    #dibujamos el rectangulo
+    pg.draw.rect(screen, color, rectangle, 2)
+    return rectangle
 
 
-##funcion para los textos
+##funcion para los textos (por ahora la dejare existiendo)
 def text_renders(text,pantalla, text_color,text_option,x,y):
     
     pass

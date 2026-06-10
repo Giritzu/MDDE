@@ -4,12 +4,17 @@ import os
 from archivos_necesarios import main_menu
 from archivos_necesarios import botones
 from archivos_necesarios import constantes
+from archivos_necesarios import functions
+
 #pestaña principal
 pg.init()
 screen = pg.display.set_mode((1280,720))
 titulo = pg.display.set_caption("MDDE")
 time = pg.time.Clock()
 run = True
+
+#cargamos el main menu
+menu_principal = main_menu.mainmenu(screen)
 
 #codigo principal
 while run == True:
@@ -19,12 +24,8 @@ while run == True:
         if evento.type == pg.QUIT:
             run = False
 
-    #llamo al menu principal para dibujar la pantalla del menu principal
-    menu_principal = main_menu.mainmenu(screen)
-    pantalla_principal = menu_principal.draw()
-
-    #botones
-
+    #dibujamos los botones
+    menu_principal.draw()
 
     #actualizar la pantalla
     pg.display.update()

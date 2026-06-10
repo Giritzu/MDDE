@@ -1,47 +1,28 @@
 import pygame as pg
 from archivos_necesarios import constantes
 import os
+from archivos_necesarios import functions
 
 class buttons:
-    def __init__(self, screen):
+    def __init__(self, screen, texto, x, y, posicion_ini="topleft"):
         #tomamos la pantalla del juego
         self.screen = screen
-
-        #el texto
+        #fuente inicial del texto
         self.text = pg.font.SysFont("Arial",20)
-        self.text_render = self.text.render(None,True,constantes.NEGRO)
-        self.text_coords = screen.blit(self.text_render,(0,0))
-
-class boton_play(buttons):
-    def __init__(self, screen):
-        super().__init__(screen)
-        self.text_render = self.text.render("Nuevo juego",True, constantes.NEGRO)
-        self.text_coords = screen.blit(self.text_render,(100,340))
-        self.contorno = pg.Rect(75,332,160,40)
-        self.dibujo_rectangulo = pg.draw.rect(screen, constantes.NEGRO, self.contorno,2)
-
-class boton_load(buttons):
-    def __init__(self, screen):
-        super().__init__(screen)
-        self.text_render = self.text.render("Cargar datos",True, constantes.NEGRO)
-        self.text_coords = screen.blit(self.text_render,(150,340+70))
-        self.contorno = pg.Rect(75+75,332+75,160,40)
-        self.dibujo_rectangulo = pg.draw.rect(screen, constantes.NEGRO, self.contorno,2)
+        #renderizamos el texto
+        self.text_render = self.text.render(texto,True,constantes.NEGRO)
         
-class boton_extras(buttons):
-    def __init__(self, screen):
-        super().__init__(screen)
-        self.text_render = self.text.render("Extras",True, constantes.NEGRO)
-        self.text_coords = screen.blit(self.text_render,(150+50,340+70+70))
+        #creamos el rectangulo en la posicion que se nos da
+        self.hitbox = functions.position_rect(160,40,x,y, posicion_ini)
 
-class boton_opciones(buttons):
-    def __init__(self, screen):
-        super().__init__(screen)
-        self.text_render = self.text.render("Opciones",True, constantes.NEGRO)
-        self.text_coords = screen.blit(self.text_render,(150+50+50,340+70+70+70))
+        #centramos el texto en donded va a estar el rectangulo
+        self.text_center = self.text_render.get_rect()
+        self.text_center.center = self.hitbox.center
 
-class boton_exit(buttons):
-    def __init__(self, screen):
-        super().__init__(screen)
-        self.text_render = self.text.render("Salir",True, constantes.NEGRO)
-        self.text_coords = screen.blit(self.text_render,(150+50+50+50,340+70+70+70+70))
+    #creamos la funcion dibujar para poder mostrar en pantalla los botones
+    def draw(self):
+        #dibujamos el rectangulo
+        pg.draw.rect(self.screen, constantes.NEGRO,self.hitbox,2)
+
+        #dibujamos el texto
+        self.screen.blit(self.text_render, self.text_center)
