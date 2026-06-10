@@ -7,8 +7,8 @@ from archivos_necesarios import constantes
 ##carpeta meramente hecha para tener todas las funciones necesarias para reciclar codigo
 
 ##funcion para los rectangulos (hitboxes) de los botones y todo lo que se vaya a usar relacionados con estos
-def position_rect(pantalla,color_contorno,x,y,ancho,alto):
-    
+def position_rect(pantalla,color_contorno,ancho,alto,x,y, posicion_estandar=""):
+
     pass
 
 ##funcion para los textos

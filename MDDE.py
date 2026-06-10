@@ -23,21 +23,7 @@ while run == True:
     menu_principal = main_menu.mainmenu(screen)
     pantalla_principal = menu_principal.draw()
 
-    #boton play 
-    botones.buttons(screen)
-    botones.boton_play(screen)
-
-    #boton load
-    botones.boton_load(screen)
-
-    #boton extras
-    botones.boton_extras(screen)
-
-    #boton opciones
-    botones.boton_opciones(screen)
-
-    #boton exit
-    botones.boton_exit(screen)
+    #botones
 
 
     #actualizar la pantalla
