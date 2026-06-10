@@ -1,0 +1,1 @@
+screen.fill(self.bg_color
