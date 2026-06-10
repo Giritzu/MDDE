@@ -23,6 +23,11 @@ while run == True:
     for evento in pg.event.get():
         if evento.type == pg.QUIT:
             run = False
+
+    #tomamos la posicion del mouse en todo momento
+    mouse_position = pg.mouse.get_pos()
+    
+
     #borramos la pantalla
     screen.fill((0, 0, 0))
 
