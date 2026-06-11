@@ -37,10 +37,10 @@ class mainmenu:
         for boton in self.text_options:
             boton.draw()
     
-    def update_color(self):
+    def update_color(self,mouse_position):
         #para dibujar todos los botonescon los nuevos colores
         for boton in self.text_options:
-            boton.update_color()
+            boton.update_color(mouse_position)
 
 class opciones:
     def __init__(self,screen):

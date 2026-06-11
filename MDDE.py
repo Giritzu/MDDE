@@ -25,7 +25,7 @@ while run == True:
             run = False
 
     #tomamos la posicion del mouse en todo momento
-    
+    mouse_position = pg.mouse.get_pos()
 
     #borramos la pantalla
     screen.fill((0, 0, 0))
@@ -33,7 +33,7 @@ while run == True:
     #dibujamos los botones
     menu_principal.draw()
     #si es que se llegan a tocar los botones
-    menu_principal.update_color()
+    menu_principal.update_color(mouse_position)
 
     #actualizar la pantalla
     pg.display.update()
