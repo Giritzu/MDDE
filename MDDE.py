@@ -38,6 +38,9 @@ while run == True:
                     if opcion_seleccionada == "Options":
                         actual_state = "OPCIONES"
 
+                    if opcion_seleccionada == "Exit":
+                        run = False
+
                 #para cuando estamos en el menu de opciones
                 if actual_state == "OPCIONES":
                     opcion_seleccionada = menu_opciones.manage_click(pos_click)
@@ -61,7 +64,8 @@ while run == True:
     elif actual_state == "OPCIONES":
         #dibujo los botones
         menu_opciones.draw()
-
+        #para el efecto hower
+        menu_opciones.update_color(mouse_position)
 
 
     #actualizar la pantalla
