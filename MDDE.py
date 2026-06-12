@@ -13,9 +13,11 @@ titulo = pg.display.set_caption("MDDE")
 time = pg.time.Clock()
 run = True
 
+#estado del menu actual
+menu_state = "PRINCIPAL_MENU"
 #cargamos el main menu
 menu_principal = main_menu.mainmenu(screen)
-
+menu_opciones = main_menu.opciones(screen)
 #codigo principal
 while run == True:
 
@@ -29,11 +31,17 @@ while run == True:
 
     #borramos la pantalla
     screen.fill((0, 0, 0))
+    
+    if menu_state == "PRINCIPAL_MENU":
+        #dibujamos los botones
+        menu_principal.draw()
+        #si es que se llegan a tocar los botones
+        menu_principal.update_color(mouse_position)
 
-    #dibujamos los botones
-    menu_principal.draw()
-    #si es que se llegan a tocar los botones
-    menu_principal.update_color(mouse_position)
+
+    elif menu_state == "OPTIONS":
+        pass
+
 
     #actualizar la pantalla
     pg.display.update()

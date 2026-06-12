@@ -2,7 +2,7 @@ import pygame as pg
 import os
 from archivos_necesarios import constantes
 from archivos_necesarios import botones
-
+from archivos_necesarios import functions
 #hago la clase main menu la cual tendra las opciones iniciales deljuego, play, options, extras, exit.
 class mainmenu:
     def __init__(self, screen):
@@ -42,7 +42,46 @@ class mainmenu:
         for boton in self.text_options:
             boton.update_color(mouse_position)
 
+"""
+este sera la clase donde estaran la configuracion de volumen, textos, etc, este menu va a tener submenus con su configuracion
+correspondiente
+"""
 class opciones:
     def __init__(self,screen):
-        pass
-    pass 
+        #colocamos la pantalla a la cual se está trabajando
+        self.screen = screen
+
+        #haremos el tamaño de la ventana, en este caso 1280*720
+        self.screen_resolution = (0,0,1280,720)
+        #color del fondo
+        self.bg_color = constantes.GRIS
+
+        #los submenus y botones que va a tener la lista
+        self.options_text = ["Exit"]
+
+        #los submenus pero en su version clase en una lista
+        self.options_boton = []
+
+        #este for es clave para que se creen los botones de manera automatica y eficiente
+        for i, text in enumerate(self.options_text):
+            
+            #los posicionamos en el menu
+            pos_y = 720 - (i*100)
+
+            #creamos los rectangulos
+            self.suboptions = botones.buttons(screen,text, 0, pos_y, "bottomleft")
+
+            #lo metemos a nuestra lista de clase
+            self.options_boton.append(self.suboptions)
+
+        def draw (self):
+            #dibujamos el color del fondo
+            pg.draw.rect(self.screen,self.bg_color, self.screen_resolution)
+
+            #dibujamos los botones
+            for boton in self.options_boton:
+                boton.draw()
+
+        #para actualizar los colores de los botones
+        def update_color(self):
+            pass
