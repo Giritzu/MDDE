@@ -99,3 +99,10 @@ class opciones:
         for opcion in self.options_boton:
             if opcion.click_buttom(mouse_position):
                 return opcion.name_id
+            
+#hare la case en donde se inicia el juego, esta clase lo que va a hacer es controlar el fondo, y tener el boton pausa
+#el trabajo del boton pausa va a ser un submenu el cual van a estar opciones similares a las dele main_menu
+
+class pausa:
+    def __init__(self):
+        pass
