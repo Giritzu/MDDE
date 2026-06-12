@@ -15,11 +15,11 @@ class mainmenu:
         #color base de pruebas
        
         #opciones
-        option_text = ["New Game", "Load Game", "Options", "Galery", "Creedits","Exit"]
+        self.option_text = ["New Game", "Load Game", "Options", "Galery", "Creedits","Exit"]
         #guardaremos las opciones para despues dibujarlas en otra lista
         self.text_options = []
 
-        for i, texto in enumerate(option_text):
+        for i, texto in enumerate(self.option_text):
             #posicion en y donde quiero cada boton para que esten separados simetricamentee
             position_y = 340 + (i*70)
             position_x = 90 + (i*80)
@@ -42,6 +42,11 @@ class mainmenu:
         for boton in self.text_options:
             boton.update_color(mouse_position)
 
+    def manage_click(self, mouse_position):
+        #obtengo las opciones de la lista self.options
+        for opcion in self.text_options:
+            if opcion.click_buttom(mouse_position):
+                return opcion.name_id
 """
 este sera la clase donde estaran la configuracion de volumen, textos, etc, este menu va a tener submenus con su configuracion
 correspondiente

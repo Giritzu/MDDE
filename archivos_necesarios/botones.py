@@ -8,7 +8,8 @@ class buttons:
         #tomamos la pantalla del juego
         self.screen = screen
 
-        #tomamos la posicion del mouse
+        #tomamos el nombre de la opcion
+        self.name_id = texto
 
         #fuente inicial del texto
         self.text = pg.font.SysFont("Arial",20)
@@ -42,4 +43,8 @@ class buttons:
         #dibujamos el texto
         self.screen.blit(self.text_render, self.text_center)
 
-    
+    #hago una funcion que tome cuando se le da click a una opcion
+    def click_buttom(self, mouse_position):
+        #tomo la poisicion del mouse
+        if self.hitbox.collidepoint(mouse_position):
+            return True

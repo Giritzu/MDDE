@@ -25,13 +25,16 @@ while run == True:
     for evento in pg.event.get():
         if evento.type == pg.QUIT:
             run = False
-
+        elif evento.type == pg.MOUSEBUTTONDOWN:
+            if evento.button == 1:
+                pos_click = evento.pos
+                
     #tomamos la posicion del mouse en todo momento
     mouse_position = pg.mouse.get_pos()
 
     #borramos la pantalla
     screen.fill((0, 0, 0))
-    
+
     if menu_state == "PRINCIPAL_MENU":
         #dibujamos los botones
         menu_principal.draw()
