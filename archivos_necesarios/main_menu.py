@@ -55,7 +55,7 @@ class opciones:
     def __init__(self,screen):
         #colocamos la pantalla a la cual se está trabajando
         self.screen = screen
-
+        
         #haremos el tamaño de la ventana, en este caso 1280*720
         self.screen_resolution = (0,0,1280,720)
         #color del fondo
@@ -79,14 +79,21 @@ class opciones:
             #lo metemos a nuestra lista de clase
             self.options_boton.append(self.suboptions)
 
-        def draw (self):
-            #dibujamos el color del fondo
-            pg.draw.rect(self.screen,self.bg_color, self.screen_resolution)
+    def draw (self):
+        #dibujamos el color del fondo
+        pg.draw.rect(self.screen,self.bg_color, self.screen_resolution)
 
-            #dibujamos los botones
-            for boton in self.options_boton:
-                boton.draw()
+        #dibujamos los botones
+        for boton in self.options_boton:
+            boton.draw()
 
-        #para actualizar los colores de los botones
-        def update_color(self):
-            pass
+    #para actualizar los colores de los botones
+    def update_color(self):
+        pass
+
+    #para los clicks a los botones
+    def manage_click(self, mouse_position):
+        #obtengo las opciones de la lista self.options
+        for opcion in self.options_boton:
+            if opcion.click_buttom(mouse_position):
+                return opcion.name_id
