@@ -16,6 +16,7 @@ time = pg.time.Clock()
 run = True
 
 actual_state = "PRINCIPAL_MENU"
+sub_state = ""
 #cargamos el main menu
 menu_principal = main_menu.mainmenu(screen)
 menu_opciones = main_menu.opciones(screen)
@@ -44,15 +45,27 @@ while run == True:
 
                     if opcion_seleccionada == "New Game":
                         actual_state = "JUEGO"
+
+                        #si se llega a darle al boton pause cuando se esta en el juego
+
                     if opcion_seleccionada == "Exit":
                         run = False
 
                 #para cuando estamos en el menu de opciones
-                if actual_state == "OPCIONES":
+                elif actual_state == "OPCIONES":
                     opcion_seleccionada = menu_opciones.manage_click(pos_click)
 
                     if opcion_seleccionada == "Exit":
                         actual_state = "PRINCIPAL_MENU"
+
+                elif opcion_seleccionada == "New Game":
+                        #si se llega a darle al boton pause cuando se esta en el juego
+                        opcion_seleccionada = en_juego.manage_click(pos_click)
+                        if opcion_seleccionada == "Pause":
+
+                            #Para poder abrir el boton de pausa del juego
+                            sub_state = "PAUSA"
+
     #tomamos la posicion del mouse en todo momento
     mouse_position = pg.mouse.get_pos()
 
@@ -77,6 +90,10 @@ while run == True:
         en_juego.draw()
         #para el efecto hower
         en_juego.update_color(mouse_position)
+
+        #para dibujar el menu de pausa
+        if sub_state == "PAUSA":
+            pass
 
     #actualizar la pantalla
     pg.display.update()
