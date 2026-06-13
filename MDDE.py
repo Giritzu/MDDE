@@ -54,13 +54,26 @@ while run == True:
                     if opcion_seleccionada == "Exit":
                         actual_state = "PRINCIPAL_MENU"
 
-                elif opcion_seleccionada == "New Game":
-                        #si se llega a darle al boton pause cuando se esta en el juego
-                        opcion_seleccionada = en_juego.manage_click(pos_click)
-                        if opcion_seleccionada == "Pause":
+                elif sub_state == "PAUSA" and actual_state == "JUEGO":
+                    #si se llega a darle a alguno de los botones del menu pausa
+                    opcion_seleccionada = menu_pausa.manage_click(pos_click)
 
-                            #Para poder abrir el boton de pausa del juego
-                            sub_state = "PAUSA"
+                    if opcion_seleccionada == "Return to game":
+                        sub_state = "JUGAR"
+
+                    elif opcion_seleccionada == "Return main menu":
+                        sub_state = "PRINCIPAL_MENU"
+                        actual_state = "PRINCIPAL_MENU"
+
+                elif actual_state == "JUEGO" and sub_state != "PAUSA":
+                    #si se llega a darle al boton pause cuando se esta en el juego
+                    opcion_seleccionada = en_juego.manage_click(pos_click)
+                    if opcion_seleccionada == "Pause":
+
+                        #Para poder abrir el boton de pausa del juego
+                        sub_state = "PAUSA"
+
+                
 
     #tomamos la posicion del mouse en todo momento
     mouse_position = pg.mouse.get_pos()
@@ -84,8 +97,11 @@ while run == True:
     elif actual_state == "JUEGO":
         #dibujo los botones
         en_juego.draw()
-        #para el efecto hower
-        en_juego.update_color(mouse_position)
+
+        #para que no se reproduzca el efecto hower mientras el juego este pausado
+        if sub_state != "PAUSA":
+            #para el efecto hower
+            en_juego.update_color(mouse_position)
 
         #para dibujar el menu de pausa
         if sub_state == "PAUSA":
