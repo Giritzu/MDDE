@@ -16,6 +16,7 @@ sub_state = ""
 menu_principal = main_menu.mainmenu(screen)
 menu_opciones = main_menu.opciones(screen)
 en_juego = game.play(screen)
+menu_pausa = game.pausa(screen)
 #codigo principal
 while run == True:
 
@@ -88,7 +89,10 @@ while run == True:
 
         #para dibujar el menu de pausa
         if sub_state == "PAUSA":
-            pass
+            #dibujo los botones y el fondo del menu pausa
+            menu_pausa.draw()
+            #para el efecto hower
+            menu_pausa.update_color(mouse_position)
 
     #actualizar la pantalla
     pg.display.update()

@@ -64,10 +64,14 @@ class pausa:
     def __init__(self, screen):
         #tomamos la pantalla
         self.screen = screen
-        #tomo el tamaño que quiero que tenga este submenu
-        self.screen_resolution = (0,0,200,720)
+        #tomo el tamaño que quiero que tenga este submenu para crear una superficie
+        self.screen_resolution_before = pg.Surface((1280,720), pg.SRCALPHA)
+        #tomo la superficie y la vuelvo mas o menos transparente
+        self.screen_resolution_before.fill((0,0,0,120))
 
-        #color del menu de pausa
+        #submenu tamaño de fondo principal
+        self.screen_resolution = functions.position_rect(1280/2,0,"midtop",250,720)
+
         self.bg_color = constantes.GRIS_OSCURO
 
         #botones del submenu pausa que va a tener
@@ -90,8 +94,10 @@ class pausa:
     
     #para dibujar tanto el menu como los botones
     def draw (self):
+        #dibujo el color del subfondo
+        self.screen.blit(self.screen_resolution_before,(0,0))
         #dibujamos el color del fondo
-        pg.draw.rect(self.screen,self.bg_color, self.screen_resolution)
+        pg.draw.rect(self.screen,self.bg_color, self.screen_resolution,)
 
         #dibujamos los botones
         for boton in self.submenu_option:
