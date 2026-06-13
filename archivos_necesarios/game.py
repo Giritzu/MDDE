@@ -67,3 +67,45 @@ class pausa:
         #tomo el tamaño que quiero que tenga este submenu
         self.screen_resolution = (0,0,200,720)
 
+        #color del menu de pausa
+        self.bg_color = constantes.GRIS_OSCURO
+
+        #botones del submenu pausa que va a tener
+        self.submenu_optiontext = ["Settings", "Save", "Load", "Return to game", "Return main menu"]
+        
+        #creacion de botones(lista)
+        self.submenu_option = []
+
+        #for que creara los botones y las posiciones
+        for i,text in enumerate(self.submenu_optiontext):
+            #posicion en y
+            position_y = (720/2-50) + (i*50)
+            position_x = (1280/2)
+
+            #creacion de los botones
+            self.options = botones.buttons(screen, text, position_x, position_y, "midtop") 
+
+            #los agrego a la lista de la creacion de los botones
+            self.submenu_option.append(self.options)
+    
+    #para dibujar tanto el menu como los botones
+    def draw (self):
+        #dibujamos el color del fondo
+        pg.draw.rect(self.screen,self.bg_color, self.screen_resolution)
+
+        #dibujamos los botones
+        for boton in self.submenu_option:
+            boton.draw()
+
+    #funcion para el cambio de color al pasar el mouse sobre el boton
+    def update_color(self,mouse_position):
+        #para dibujar todos los botonescon los nuevos colores
+        for boton in self.submenu_option:
+            boton.update_color(mouse_position)
+    
+    #funcion para manejar los clicks sobre los botones
+    def manage_click(self, mouse_position):
+        #obtengo las opciones de la lista self.options
+        for opcion in self.submenu_option:
+            if opcion.click_buttom(mouse_position):
+                return opcion.name_id
