@@ -32,10 +32,12 @@ class play:
             lado_uno = 40
             lado_dos = 40
             #la diferencia de las posiciones de los botones
-            position_x = 1280 - (i*(1280-lado_uno))
+            position_x = 1270 - (i*(1260-lado_uno))
 
             #creamos los cuadrados
-            self.options = functions.botones(screen, texto, position_x, 0,"topright", lado_uno, lado_dos)
+            self.options = botones.buttons(screen, texto, position_x, 10,"topright", lado_uno, lado_dos)
+            #los guardamos en la lista
+            self.options_ingame.append(self.options)
 
     #para dibujar tanto el menu como los botones
     def draw (self):

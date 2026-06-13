@@ -19,6 +19,7 @@ actual_state = "PRINCIPAL_MENU"
 #cargamos el main menu
 menu_principal = main_menu.mainmenu(screen)
 menu_opciones = main_menu.opciones(screen)
+en_juego = game.play(screen)
 #codigo principal
 while run == True:
 
@@ -41,6 +42,8 @@ while run == True:
                     if opcion_seleccionada == "Options":
                         actual_state = "OPCIONES"
 
+                    if opcion_seleccionada == "New Game":
+                        actual_state = "JUEGO"
                     if opcion_seleccionada == "Exit":
                         run = False
 
@@ -50,7 +53,6 @@ while run == True:
 
                     if opcion_seleccionada == "Exit":
                         actual_state = "PRINCIPAL_MENU"
-
     #tomamos la posicion del mouse en todo momento
     mouse_position = pg.mouse.get_pos()
 
@@ -70,6 +72,11 @@ while run == True:
         #para el efecto hower
         menu_opciones.update_color(mouse_position)
 
+    elif actual_state == "JUEGO":
+        #dibujo los botones
+        en_juego.draw()
+        #para el efecto hower
+        en_juego.update_color(mouse_position)
 
     #actualizar la pantalla
     pg.display.update()
