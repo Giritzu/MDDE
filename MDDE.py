@@ -10,13 +10,17 @@ titulo = pg.display.set_caption("MDDE")
 time = pg.time.Clock()
 run = True
 
+#estados del juego
 actual_state = "PRINCIPAL_MENU"
 sub_state = ""
-#cargamos el main menu
+
+#cargamos los menus
 menu_principal = main_menu.mainmenu(screen)
 menu_opciones = main_menu.opciones(screen)
 en_juego = game.play(screen)
 menu_pausa = game.pausa(screen)
+text_box = caja_de_texto.text_box(screen)
+
 #codigo principal
 while run == True:
 
@@ -97,12 +101,14 @@ while run == True:
     elif actual_state == "JUEGO":
         #dibujo los botones
         en_juego.draw()
+        #dibujo la caja dee texto
+        text_box.draw()
 
         #para que no se reproduzca el efecto hower mientras el juego este pausado
         if sub_state != "PAUSA":
             #para el efecto hower
             en_juego.update_color(mouse_position)
-
+            
         #para dibujar el menu de pausa
         if sub_state == "PAUSA":
             #dibujo los botones y el fondo del menu pausa

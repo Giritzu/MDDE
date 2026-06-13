@@ -1,8 +1,6 @@
 import pygame as pg
-from archivos_necesarios import constantes
 import os
-from archivos_necesarios import functions
-from archivos_necesarios import game
+from archivos_necesarios import main_menu, constantes, functions, caja_de_texto, game
 
 class buttons:
     def __init__(self, screen, texto, x, y, posicion_ini="topleft", ancho=160,alto=40):

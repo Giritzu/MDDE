@@ -1,10 +1,6 @@
 import pygame as pg
 import os
-from archivos_necesarios import constantes
-from archivos_necesarios import botones
-from archivos_necesarios import functions
-from archivos_necesarios import caja_de_texto
-from archivos_necesarios import game
+from archivos_necesarios import botones, constantes, functions, caja_de_texto, game
 
 #hago la clase main menu la cual tendra las opciones iniciales deljuego, play, options, extras, exit.
 class mainmenu:
@@ -103,10 +99,3 @@ class opciones:
             if opcion.click_buttom(mouse_position):
                 return opcion.name_id
             
-
-#hare la case en donde se inicia el juego, esta clase lo que va a hacer es controlar el fondo, y tener el boton pausa
-#el trabajo del boton pausa va a ser un submenu el cual van a estar opciones similares a las dele main_menu
-
-class pausa:
-    def __init__(self):
-        pass

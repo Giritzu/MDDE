@@ -1,10 +1,6 @@
 import pygame as pg
 import os
-from archivos_necesarios import main_menu
-from archivos_necesarios import botones
-from archivos_necesarios import constantes
-from archivos_necesarios import caja_de_texto
-from archivos_necesarios import game
+from archivos_necesarios import main_menu, botones, constantes, caja_de_texto, game
 
 ##carpeta meramente hecha para tener todas las funciones necesarias para reciclar codigo
 
