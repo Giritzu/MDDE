@@ -1,11 +1,7 @@
 #importaciones
 import pygame as pg
 import os
-from archivos_necesarios import main_menu
-from archivos_necesarios import botones
-from archivos_necesarios import constantes
-from archivos_necesarios import functions
-
+from archivos_necesarios import main_menu, botones, constantes, functions
 
 #en este archivo estara la clase new game y load game.
 
@@ -65,5 +61,9 @@ class play:
 #el trabajo del boton pausa va a ser un submenu el cual van a estar opciones similares a las dele main_menu
 
 class pausa:
-    def __init__(self):
-        pass
+    def __init__(self, screen):
+        #tomamos la pantalla
+        self.screen = screen
+        #tomo el tamaño que quiero que tenga este submenu
+        self.screen_resolution = (0,0,200,720)
+
