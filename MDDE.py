@@ -5,6 +5,8 @@ from archivos_necesarios import main_menu
 from archivos_necesarios import botones
 from archivos_necesarios import constantes
 from archivos_necesarios import functions
+from archivos_necesarios import caja_de_texto
+from archivos_necesarios import game
 
 #pestaña principal
 pg.init()
@@ -20,8 +22,9 @@ menu_opciones = main_menu.opciones(screen)
 #codigo principal
 while run == True:
 
-    #si le dan a quit para poder salir del juego
+    #este es el bloque de acciones exactas (se ejecutan una sola vez por cada frame)
     for evento in pg.event.get():
+        #si se detecta que se le da al boton x de la ventana para poder cerrarlo
         if evento.type == pg.QUIT:
             run = False
         #vemos si se ejecuta algun click

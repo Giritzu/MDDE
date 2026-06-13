@@ -2,9 +2,10 @@ import pygame as pg
 from archivos_necesarios import constantes
 import os
 from archivos_necesarios import functions
+from archivos_necesarios import game
 
 class buttons:
-    def __init__(self, screen, texto, x, y, posicion_ini="topleft"):
+    def __init__(self, screen, texto, x, y, posicion_ini="topleft", ancho=160,alto=40):
         #tomamos la pantalla del juego
         self.screen = screen
 
@@ -20,7 +21,7 @@ class buttons:
         self.color_rect_nuevo = constantes.NEGRO
         
         #creamos el rectangulo en la posicion que se nos da
-        self.hitbox = functions.position_rect(160,40,x,y, posicion_ini)
+        self.hitbox = functions.position_rect(x,y, posicion_ini, ancho, alto)
 
         #centramos el texto en donded va a estar el rectangulo
         self.text_center = self.text_render.get_rect()

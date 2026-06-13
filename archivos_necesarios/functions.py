@@ -3,11 +3,13 @@ import os
 from archivos_necesarios import main_menu
 from archivos_necesarios import botones
 from archivos_necesarios import constantes
+from archivos_necesarios import caja_de_texto
+from archivos_necesarios import game
 
 ##carpeta meramente hecha para tener todas las funciones necesarias para reciclar codigo
 
 ##funcion para los rectangulos (hitboxes) de los botones y todo lo que se vaya a usar relacionados con estos (solo los va a crear mas no dibujar)
-def position_rect(ancho,alto,x,y, posicion_predefinida="center"):
+def position_rect(x,y, posicion_predefinida="center",ancho=160,alto=40):
     #crearemos primero el rectangulo en el punto 0.0 para que solo simplemente tengamos que moverlo a la posicion que deseo.
     rectangle = pg.Rect(0,0,ancho,alto)
     #posicionaremos el rectangulo
